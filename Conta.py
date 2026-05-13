@@ -12,7 +12,7 @@ class Conta:
             print("Valor de depósito inválido.")
 
     def sacar(self, valor):
-        if valor > 0 and self.__saldo >= valor:
+        if valor > 0 and self._saldo >= valor:
             self._saldo -= valor
             print(f"Saque de R$ {valor:.2f} realizado.")
             return True
