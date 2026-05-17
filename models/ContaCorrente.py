@@ -1,8 +1,9 @@
 from Conta import Conta
+import config
 
 class ContaCorrente(Conta):
     def sacar(self, valor):
-        taxa = 1.0
+        taxa = config.TAXA_SAQUE
         saque = valor + taxa
         if saque <= self._saldo:
             self._saldo -= saque
