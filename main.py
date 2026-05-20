@@ -1,36 +1,31 @@
-from models.Cliente import Cliente
-from models.ContaCorrente import ContaCorrente
-from models.ContaPoupanca import ContaPoupanca
-import view.menus as menus
-import view.utilidades as util
+from controllers import ContaController
+from views import menus, utilidades as util
 
+app = ContaController()
 
 while True:
     opcao = menus.menu_inicial()
-
     match(opcao):
         case "1":
-            # CADASTRO CLIENTE
-            pass
+            opcao_cliente = menus.criar_cliente()
+            match(opcao_cliente):
+                case "1":
+                    app.cadastrar_cliente()
+                case "0":
+                    continue
         case "2":
             opcao_conta = menus.criar_conta()
             match(opcao_conta):
                 case "1":
-                    # CADASTRO CONTA CORRENTE
-                    util.carregar_criacao_conta()
                     pass
                 case "2":
-                    # CADASTRO CONTA POUPANÇA
-                    util.carregar_criacao_conta()
+                    pass
                 case _:
                     util.opcao_invalida()
         case "3":
-            # ACESSAR CONTA
             pass
         case "4":
-            # DÚVIDAS E SUGESTÕES
             pass
-        case "5":
-            # ENCERRAR CÓDIGO OK
+        case "0":
             util.encerrar()
             break

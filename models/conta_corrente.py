@@ -1,4 +1,4 @@
-from Conta import Conta
+from . import Conta
 import config
 
 class ContaCorrente(Conta):
